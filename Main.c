@@ -1,10 +1,11 @@
 /*
-Rafael Díaz Medina A01024592 Tarea 2 Iterator 
+Rafael Díaz Medina
+A01024592
 */
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct{
+typedef struct {
 	char* titulo;
 	int paginas;
 } Libro;
@@ -34,7 +35,7 @@ void* nextLibro(void*);
 void* prevLibro(void*);
 void printLibro(void*);
 
-int main(int argc, const char * argv[]){
+int main(int argc, const char * argv[]) {
 	int s=0;
 	int maxArray;
 	int nOpc=3;
@@ -46,8 +47,7 @@ int main(int argc, const char * argv[]){
 	
 	Libro* libros;
     libros = (Libro*)malloc(maxArray* sizeof(Libro));
-	//printf("%s", Titulos[9]);
-
+	
 	opciones* menu = (opciones*) malloc(nOpc* sizeof(opciones));
     *menu = Recorre;
     *(menu+1) = Recorre;
@@ -62,7 +62,7 @@ int main(int argc, const char * argv[]){
 	}
 
  while (opcion!=4){
-        printf("\n---Bienvenido a Hospital San Rafael--- \
+        printf("\n---Iteradores--- \
         \n1-Forward Iterator \
         \n2-Reverse Iterator \
         \n3-Bidirectional Iterator \
@@ -117,7 +117,7 @@ void forwardIterator(void* a, size_t size, int total, t_next begin, t_pos end, t
 {
 	void* inicio = begin(a);
 	void* fin = end(a, total);
-	while (inicio <= fin){
+	while (inicio <= fin) {
 		print(inicio);
 		inicio = next(inicio);
 	} 
@@ -127,7 +127,7 @@ void reverseIterator(void* a, size_t size, int total, t_next begin, t_pos end, t
 {
 	void* inicio = end(a, total);
 	void* fin = begin(a);
-	while (inicio >= fin){
+	while (inicio >= fin) {
 		print(inicio);
 		inicio = prev(inicio);
 	} 
